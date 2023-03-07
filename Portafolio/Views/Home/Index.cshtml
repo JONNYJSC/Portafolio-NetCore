@@ -1,0 +1,35 @@
+﻿@model Persona
+
+@{
+    ViewData["Title"] = "Página Principal";
+
+    string ConvertirEnMinusculas(string valor)
+    {
+        return valor.ToUpper() + "ZZZ";
+    }
+
+    DateTime hoy = DateTime.Now;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Soy @ConvertirEnMinusculas(Model.Nombre) (@Model.Edad)</h1>
+
+    <h4>@hoy.ToString("dd/MM/yyyyy hh:mm:ss tt")</h4>
+
+    @if (Model.Edad >= 18)
+    {
+        <h4>Eres mayor de edad! Puedes pasar <button>Entrar</button></h4>
+    }
+    else
+    {
+        <h4>Eres menor! Lárgate.</h4>
+    }
+
+    <h2>Soy un desarrollador especializado en tecnologías .Net y JavaScript</h2>
+
+    <img
+        id="foto"
+        src="~/imagenes/perfil.jpg"
+        alt="Foto de Jonny"
+        />
+</div>
