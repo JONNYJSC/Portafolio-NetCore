@@ -15,13 +15,44 @@ namespace Portafolio.Controllers
 
         public IActionResult Index()
         {
-            var persona = new Persona()
-            {
-                Nombre = "Jonny Sánchez",
-                Edad = 30
-            };
+            //Take(3).ToList() = toma los primeros 3 registros
+            var proyectos = ObtenerProyectos().Take(3).ToList();
+            var modelo = new HomeIndexViewModel() { Proyectos = proyectos };
+            return View(modelo);
+        }
 
-            return View(persona);
+        private List<Proyecto> ObtenerProyectos()
+        {
+            return new List<Proyecto>()
+            { new Proyecto
+                {
+                    Titulo = "Amazon",
+                    Descripcion = "E-Comerce realizado en ASP.NET Core",
+                    Link = "https://amazon.com",
+                    ImagenURL = "/imagenes/amazon.png"
+                },
+                new Proyecto
+                {
+                    Titulo = "New York Time",
+                    Descripcion = "Pàgina de noticias en React",
+                    Link = "https://nytimes.com",
+                    ImagenURL = "/imagenes/nyt.png"
+                },
+                new Proyecto
+                {
+                    Titulo = "Reddit",
+                    Descripcion = "Red social para compartir en comunidades",
+                    Link = "https://reddit.com",
+                    ImagenURL = "/imagenes/reddit.png"
+                },
+                new Proyecto
+                {
+                    Titulo = "Steam",
+                    Descripcion = "E-Comerce realizado en ASP.NET Core",
+                    Link = "https://store.steampowered.com",
+                    ImagenURL = "/imaganes/steam.png"
+                },
+            };
         }
 
         public IActionResult Privacy()
