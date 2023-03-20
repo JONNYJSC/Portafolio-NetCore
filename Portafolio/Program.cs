@@ -1,3 +1,4 @@
+using Portafolio.Models;
 using Portafolio.Servicios;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,10 @@ builder.Services.AddControllersWithViews();
 
 //Inyeccion de dependencias
 builder.Services.AddTransient<IRepositorioProyectos, RepositorioProyectos>();
+
+builder.Services.AddTransient<ServicioTransitorio>(); //crea nueva instancia
+builder.Services.AddScoped<ServicioDelimitado>(); //crea nueva instancia
+builder.Services.AddSingleton<ServicioUnico>(); //Nunca cambia
 
 var app = builder.Build();
 
