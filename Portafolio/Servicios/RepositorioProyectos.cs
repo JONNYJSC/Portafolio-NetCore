@@ -37,7 +37,7 @@ namespace Portafolio.Servicios
                     Titulo = "Steam",
                     Descripcion = "E-Comerce realizado en ASP.NET Core",
                     Link = "https://store.steampowered.com",
-                    ImagenURL = "/imaganes/steam.png"
+                    ImagenURL = "/imagenes/steam.png"
                 },
             };
         }
